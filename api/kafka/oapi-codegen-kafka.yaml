@@ -1,0 +1,10 @@
+# oapi-codegen-rest.yaml (v2 format)
+package: api
+generate:
+  models: true
+  strict-server: true
+  embedded-spec: true
+output: gen/kafka.api.gen.go
+output-options:
+  nullable-type: true
+  response-type-suffix: Response

@@ -8,11 +8,14 @@ components:
   schemas:
     OperationEvent:
       type: object
-      required: [ event-id, card-id, status, transaction_date_time ]
+      required: [ event-id, card-id, status, chain-id, amount, currency, transaction-date-time ]
       properties:
         event-id: { type: string, format: uuid }
         card-id: { type: string, format: uuid }
+        chain-id: { type: string, format: uuid }
+        amount: { type: string, format: decimal }
+        currency: { type: string }
         status: { type: string, enum: [ APPROVED, REJECTED, IN_PROGRESS ] }
-        transaction_date_time: { type: string, format: date-time }
+        transaction-date-time: { type: string, format: date-time }
 
 paths: { }

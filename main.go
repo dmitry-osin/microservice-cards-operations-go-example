@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"cards-operations/core"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -11,7 +13,14 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	cfg, err := core.Load(".")
+	if err != nil {
+		log.Fatalf("load config: %v", err)
+	}
+
 	http.HandleFunc("/health", handler)
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	addr := fmt.Sprintf(":%d", cfg.HTTP.Port)
+	log.Printf("listening on %s", addr)
+	log.Fatal(http.ListenAndServe(addr, nil))
 }

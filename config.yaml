@@ -1,0 +1,20 @@
+http:
+  port: 8080
+
+db:
+  host: localhost
+  port: 5432
+  user: postgres
+  password: postgres
+  name: cards_operations
+  sslmode: disable
+
+kafka:
+  brokers:
+    - localhost:9092
+  topic: cards-operations
+  group_id: cards-operations
+  consumer:
+    enable_auto_commit: true
+    auto_commit_interval: 5s
+    session_timeout: 45s

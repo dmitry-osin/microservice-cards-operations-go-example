@@ -8,3 +8,6 @@ output: gen/kafka.api.gen.go
 output-options:
   nullable-type: true
   response-type-suffix: Response
+  skip-prune: true
+compatibility:
+  always-prefix-enum-values: true

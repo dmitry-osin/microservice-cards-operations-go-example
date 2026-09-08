@@ -9,3 +9,5 @@ output: gen/rest.api.gen.go
 output-options:
   nullable-type: true
   response-type-suffix: Response
+compatibility:
+  always-prefix-enum-values: true
